@@ -56,15 +56,71 @@
 		F48FA5E726BAD6BB0052F2E9 /* ExamProject */ = {
 			isa = PBXGroup;
 			children = (
-				F48FA5E826BAD6BB0052F2E9 /* AppDelegate.swift */,
-				F48FA5EA26BAD6BB0052F2E9 /* SceneDelegate.swift */,
-				F48FA5EC26BAD6BB0052F2E9 /* ViewController.swift */,
-				F48FA5EE26BAD6BB0052F2E9 /* Main.storyboard */,
-				F48FA5F126BAD6BB0052F2E9 /* Assets.xcassets */,
-				F48FA5F326BAD6BB0052F2E9 /* LaunchScreen.storyboard */,
+				F48FA5FC26BAD6C90052F2E9 /* Base classes */,
+				F48FA60226BAD7410052F2E9 /* Storyboards */,
+				F48FA60026BAD7250052F2E9 /* Application */,
+				F48FA60126BAD7350052F2E9 /* Resources */,
 				F48FA5F626BAD6BB0052F2E9 /* Info.plist */,
 			);
 			path = ExamProject;
+			sourceTree = "<group>";
+		};
+		F48FA5FC26BAD6C90052F2E9 /* Base classes */ = {
+			isa = PBXGroup;
+			children = (
+				F48FA5FF26BAD7100052F2E9 /* Controller */,
+				F48FA5FE26BAD6FC0052F2E9 /* Model */,
+				F48FA5FD26BAD6F60052F2E9 /* View */,
+			);
+			path = "Base classes";
+			sourceTree = "<group>";
+		};
+		F48FA5FD26BAD6F60052F2E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F48FA5FE26BAD6FC0052F2E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F48FA5FF26BAD7100052F2E9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F48FA5EC26BAD6BB0052F2E9 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F48FA60026BAD7250052F2E9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F48FA5EA26BAD6BB0052F2E9 /* SceneDelegate.swift */,
+				F48FA5E826BAD6BB0052F2E9 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F48FA60126BAD7350052F2E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F48FA5F126BAD6BB0052F2E9 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F48FA60226BAD7410052F2E9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F48FA5F326BAD6BB0052F2E9 /* LaunchScreen.storyboard */,
+				F48FA5EE26BAD6BB0052F2E9 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
