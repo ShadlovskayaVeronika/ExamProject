@@ -12,6 +12,8 @@
 		F41AD12D26BBF1E300247375 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AD12C26BBF1E300247375 /* NetworkManager.swift */; };
 		F41AD13126BC104E00247375 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AD13026BC104E00247375 /* CardView.swift */; };
 		F43891E726BC16C7009E57CA /* VenueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43891E626BC16C7009E57CA /* VenueModel.swift */; };
+		F46A20FA26BD47A10071E8B9 /* MapObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A20F926BD47A10071E8B9 /* MapObjectModel.swift */; };
+		F46A20FC26BD47D10071E8B9 /* MapObjectAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A20FB26BD47D10071E8B9 /* MapObjectAnnotation.swift */; };
 		F474AFAC26BBC77D00DCE0EF /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474AFAB26BBC77D00DCE0EF /* CardViewController.swift */; };
 		F48FA5E926BAD6BB0052F2E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48FA5E826BAD6BB0052F2E9 /* AppDelegate.swift */; };
 		F48FA5EB26BAD6BB0052F2E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48FA5EA26BAD6BB0052F2E9 /* SceneDelegate.swift */; };
@@ -19,7 +21,6 @@
 		F48FA5F026BAD6BB0052F2E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48FA5EE26BAD6BB0052F2E9 /* Main.storyboard */; };
 		F48FA5F226BAD6BB0052F2E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F48FA5F126BAD6BB0052F2E9 /* Assets.xcassets */; };
 		F48FA5F526BAD6BB0052F2E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48FA5F326BAD6BB0052F2E9 /* LaunchScreen.storyboard */; };
-		F48FA60426BADAF50052F2E9 /* MapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48FA60326BADAF50052F2E9 /* MapObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		F41AD12C26BBF1E300247375 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F41AD13026BC104E00247375 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F43891E626BC16C7009E57CA /* VenueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueModel.swift; sourceTree = "<group>"; };
+		F46A20F926BD47A10071E8B9 /* MapObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObjectModel.swift; sourceTree = "<group>"; };
+		F46A20FB26BD47D10071E8B9 /* MapObjectAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObjectAnnotation.swift; sourceTree = "<group>"; };
 		F474AFAB26BBC77D00DCE0EF /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		F48FA5E526BAD6BB0052F2E9 /* ExamProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48FA5E826BAD6BB0052F2E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +43,6 @@
 		F48FA5F126BAD6BB0052F2E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F48FA5F426BAD6BB0052F2E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F48FA5F626BAD6BB0052F2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F48FA60326BADAF50052F2E9 /* MapObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +136,9 @@
 		F48FA5FE26BAD6FC0052F2E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F48FA60326BADAF50052F2E9 /* MapObject.swift */,
 				F43891E626BC16C7009E57CA /* VenueModel.swift */,
+				F46A20F926BD47A10071E8B9 /* MapObjectModel.swift */,
+				F46A20FB26BD47D10071E8B9 /* MapObjectAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,10 +297,11 @@
 				F48FA5EB26BAD6BB0052F2E9 /* SceneDelegate.swift in Sources */,
 				F43891E726BC16C7009E57CA /* VenueModel.swift in Sources */,
 				F41AD12D26BBF1E300247375 /* NetworkManager.swift in Sources */,
+				F46A20FA26BD47A10071E8B9 /* MapObjectModel.swift in Sources */,
 				F474AFAC26BBC77D00DCE0EF /* CardViewController.swift in Sources */,
+				F46A20FC26BD47D10071E8B9 /* MapObjectAnnotation.swift in Sources */,
 				F41AD12326BBD18E00247375 /* API.swift in Sources */,
 				F41AD13126BC104E00247375 /* CardView.swift in Sources */,
-				F48FA60426BADAF50052F2E9 /* MapObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,12 +30,6 @@ class MapViewController: UIViewController {
         manager.startUpdatingLocation()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            manager.stopUpdatingLocation()
-            render(location)
-        }
-    }
     
     func render(_ location: CLLocation) {
         let coordinate = CLLocationCoordinate2D(
@@ -75,7 +69,16 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: CLLocationManagerDelegate {
-
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+           // manager.stopUpdatingLocation()
+            print("didUpdateLocations")
+            render(location)
+            fetchItems(
+                latitude: location.coordinate.latitude,
+                longitude: location.coordinate.longitude)
+        }
+    }
 }
 
 extension MapViewController: MKMapViewDelegate {
