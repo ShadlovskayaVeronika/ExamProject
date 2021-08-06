@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  ExamProject
+//
+//  Created by Veronika Shadlovskaya on 05.08.2021.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+CLIENT_ID = CKZL4ZBP4UQRKNOYEWYHPVKECFHGC0CLJH3VD004GSUUFES1
+CLIENT_SECRET = BFQMQ3WFLYQTKTHB3IIZTFZBBQRIISCELOLWTTOPLOLM2KTK
