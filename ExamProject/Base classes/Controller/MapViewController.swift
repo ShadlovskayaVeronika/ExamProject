@@ -9,14 +9,14 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ViewController: UIViewController {
+class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     let manager = CLLocationManager()
+    var items: [GroupItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager.delegate = self
         mapView.delegate = self
         mapView.mapType = .standard
         mapView.showsUserLocation = true
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestAlwaysAuthorization()
         manager.startUpdatingLocation()
@@ -38,39 +38,60 @@ class ViewController: UIViewController {
     }
     
     func render(_ location: CLLocation) {
-        let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let coordinate = CLLocationCoordinate2D(
+            latitude: location.coordinate.latitude,
+            longitude: location.coordinate.longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: true)
-        
-        let artwork = MapObject(
-          title: "King David Kalakaua",
-          locationName: "Waikiki Gateway Park",
-          discipline: "Sculpture",
-          coordinate: CLLocationCoordinate2D(latitude: 51.509865, longitude: -0.118092))
-        mapView.addAnnotation(artwork)
+        fetchItems(
+            latitude: location.coordinate.latitude,                
+            longitude: location.coordinate.longitude)
+    }
+    
+    func fetchItems(latitude: Double, longitude: Double) {
+        let networkManager = NetworkManager()
+        networkManager.fetchPlacesNearby(latitude: latitude, longitude: longitude) { [weak self] result in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success(let mapObject):
+                strongSelf.items = mapObject.response?.groups?[0].items ?? []
+                strongSelf.addItemsOnMap()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func addItemsOnMap() {
+        for item in items {
+            let mapItem = MapObject(
+                id: item.venue?.id,
+                name: item.venue?.name,
+                location: (item.venue?.location!)!)
+            mapView.addAnnotation(mapItem)
+        }
     }
 }
 
-extension ViewController: CLLocationManagerDelegate {
-    
+extension MapViewController: CLLocationManagerDelegate {
+
 }
 
-extension ViewController: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? MapObject else {
               return nil
             }
-            // 3
+        
             let identifier = "mapObject"
             var view: MKMarkerAnnotationView
-            // 4
+
             if let dequeuedView = mapView.dequeueReusableAnnotationView(
               withIdentifier: identifier) as? MKMarkerAnnotationView {
               dequeuedView.annotation = annotation
               view = dequeuedView
             } else {
-              // 5
               view = MKMarkerAnnotationView(
                 annotation: annotation,
                 reuseIdentifier: identifier)
@@ -79,5 +100,13 @@ extension ViewController: MKMapViewDelegate {
               view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             }
             return view
+    }
+   
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let mapItem = view.annotation as! MapObject
+        let vc = CardViewController()
+        vc.title = mapItem.title
+        vc.id = mapItem.id ?? ""
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
